@@ -1,3 +1,10 @@
+/*
+  Complexity
+  Average
+  Access Search Insertion Deletion 
+    -			O(1) 		O(1) 			O(1) 
+*/
+
 function HashTable(size) {
   this.values = {};
   this.numberOfValues = 0;
