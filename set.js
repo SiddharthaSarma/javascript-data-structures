@@ -1,3 +1,11 @@
+/*
+  Complexity
+  -----------
+  Average
+  Access Search Insertion Deletion 
+    -     O(n)     O(n)     O(n) 
+*/
+
 function CustomSet() {
   this.values = [];
   this.numberOfValues = 0;
@@ -14,8 +22,7 @@ CustomSet.prototype.add = function (value) {
 
 // remove
 CustomSet.prototype.remove = function (value) {
-  let index = this.values.indexOf(value);
-  if (~index) {
+  let index = this.values.indexOf(value);  if (~index) {
     this.values.splice(index, 1);
     this.numberOfValues--;
   }
@@ -51,7 +58,6 @@ CustomSet.prototype.union = function (set) {
   return newSet;
 };
 
-
 // intersect
 CustomSet.prototype.intersect = function (set) {
   let newSet = new CustomSet();
@@ -59,6 +65,7 @@ CustomSet.prototype.intersect = function (set) {
     if (set.contains(value)) {
       newSet.add(value);
     }
+
   });
 
   return newSet;
@@ -83,7 +90,8 @@ CustomSet.prototype.isSubset = function (set) {
   }, this);
 };
 
-var set = new CustomSet();
+// test
+let set = new CustomSet();
 set.add(1);
 set.add(2);
 set.add(3);
@@ -94,19 +102,19 @@ set.print(); // => 1 2 4
 console.log('contains 4 is true:', set.contains(4)); // => true
 console.log('contains 3 is false:', set.contains(3)); // => false
 console.log('---');
-var set1 = new CustomSet();
+let set1 = new CustomSet();
 set1.add(1);
 set1.add(2);
-var set2 = new CustomSet();
+let set2 = new CustomSet();
 set2.add(2);
 set2.add(3);
-var set3 = set2.union(set1);
+let set3 = set2.union(set1);
 set3.print(); // => 1 2 3
-var set4 = set2.intersect(set1);
+let set4 = set2.intersect(set1);
 set4.print(); // => 2
-var set5 = set.difference(set3); // 1 2 4 diff 1 2 3
+let set5 = set.difference(set3); // 1 2 4 diff 1 2 3
 set5.print(); // => 4
-var set6 = set3.difference(set); // 1 2 3 diff 1 2 4
+let set6 = set3.difference(set); // 1 2 3 diff 1 2 4
 set6.print(); // => 3
 console.log('set1 subset of set is true:', set.isSubset(set1)); // => true
 console.log('set2 subset of set is false:', set.isSubset(set2)); // => false
