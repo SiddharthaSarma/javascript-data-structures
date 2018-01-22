@@ -21,17 +21,18 @@ class Tree {
   }
 
   traverseBF(cb) {
-    let queue = new Queue();
-    queue.enqueue(this.root)
+    // let queue = new Queue();
+    // queue.enqueue(this.root)
 
-    let currentTree = queue.dequeue();
+    let queue = [this.root];
+    let currentTree = queue.shift(); // queue.dequeue
 
     while (currentTree) {
       for (let i = 0; i < currentTree.children.length; i++) {
-        queue.enqueue(currentTree.children[i]);
+        queue.push(currentTree.children[i]); // queue.enqueue
       }
       cb(currentTree);
-      currentTree = queue.dequeue();
+      currentTree = queue.pop(); // queue.dequeue
     }
   }
 }
