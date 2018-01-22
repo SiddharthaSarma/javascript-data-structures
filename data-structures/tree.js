@@ -59,4 +59,21 @@ class Tree {
     }
     return null;
   }
+
+  // add data to the tree
+  add(data, parentNode) {
+    let node = new Node(data);
+    parentNode = parentNode ? this.contains(parentNode) : null;
+
+    if (parentNode) {
+      parentNode.children.push(node);
+    }
+    else if (!this.root) {
+      this.root = node;
+    }
+    else {
+      return 'There is no parent node in the tree';
+    }
+  }
+
 }
