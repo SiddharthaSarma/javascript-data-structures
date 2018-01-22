@@ -32,7 +32,7 @@ class Tree {
         queue.push(currentTree.children[i]); // queue.enqueue
       }
       cb(currentTree);
-      currentTree = queue.pop(); // queue.dequeue
+      currentTree = queue.shift(); // queue.dequeue
     }
   }
 }
