@@ -35,4 +35,28 @@ class Tree {
       currentTree = queue.shift(); // queue.dequeue
     }
   }
+
+  // check if tree contains data or not
+  contains(data) {
+    return this.findBFS(data) ? true : false;
+  }
+
+
+  findBFS(val) {
+
+    let queue = [this.root];
+    let currentTree = queue.shift(); // queue.dequeue
+
+    while (currentTree) {
+      for (let i = 0; i < currentTree.children.length; i++) {
+        queue.push(currentTree.children[i]); // queue.enqueue
+      }
+      currentTree = queue.shift(); // queue.dequeue
+
+      if (currentTree.data === val) {
+        return currentTree;
+      }
+    }
+    return null;
+  }
 }
