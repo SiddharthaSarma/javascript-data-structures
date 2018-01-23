@@ -93,7 +93,7 @@ function BinarySearchTree() {
 
   /*
    * Post-order traversal visits the node after it visits the descendants.
-   * Use-case: could be computing the space used by a file in a directory
+   * Use-case: computing the space used by a file in a directory
    *           and its subdirectories
    * Order of traversing is
    *  1. Left
