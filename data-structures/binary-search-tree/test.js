@@ -53,4 +53,16 @@ describe('Testing Binary search tree', () => {
     expect(tree.max()).toEqual(25);
   });
 
+  test('should return true when the search value is found in tree', () => {
+    let tree = new BinarySearchTree();
+    Helper.insertData(tree);
+    expect(tree.search(12)).toEqual(true);
+  });
+
+  test('should return false when the search value doesn\'t exist in tree', () => {
+    let tree = new BinarySearchTree();
+    Helper.insertData(tree);
+    expect(tree.search(1)).toEqual(false);
+  });
+
 });

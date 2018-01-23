@@ -145,6 +145,27 @@ function BinarySearchTree() {
 
     return node.data;
   }
+
+  this.search = function (val) {
+    return searchNode(this.root, val);
+  }
+
+  const searchNode = function (node, val) {
+    if (!node) {
+      return false;
+    }
+
+    if (val < node.data) {
+      return searchNode(node.left, val);
+    }
+    else if (val > node.data) {
+      return searchNode(node.right, val);
+    }
+    else {
+      return true;
+    }
+
+  }
 }
 
 
