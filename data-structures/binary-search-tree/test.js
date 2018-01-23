@@ -23,4 +23,13 @@ describe('Testing Binary search tree', () => {
     expect(arr).toEqual(result);
   });
 
+  test('should support Pre-order traversal', () => {
+    let tree = new BinarySearchTree();
+    Helper.insertData(tree);
+    let expectedResultsArr = [];
+    let result = [11, 7, 5, 3, 6, 9, 8, 10, 15, 13, 12, 14, 20, 18, 25];
+    tree.preOrderTraverse((val) => expectedResultsArr.push(val));
+    expect(expectedResultsArr).toEqual(result);
+  });
+
 });

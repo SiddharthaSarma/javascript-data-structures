@@ -49,7 +49,7 @@ function BinarySearchTree() {
   }
 
   /*
-   * Inorder traversal visits all the nodes of a BST in ascending order.
+   * In-order traversal visits all the nodes of a BST in ascending order.
    * It means it will visit nodes from smallest to the largest.
    * Order of traversing is
    *  1. Left
@@ -68,6 +68,27 @@ function BinarySearchTree() {
     inOrderTraverseNode(node.left, cb);
     cb(node.data);
     inOrderTraverseNode(node.right, cb);
+  }
+
+  /*
+   * Pre-order traversal visits the node prior to its descendants.
+   * Order of traversing is
+   *  1. Root
+   *  2. Left
+   *  3. Right
+   */
+  this.preOrderTraverse = function (cb) {
+    preOrderTraverseNode(this.root, cb);
+  }
+
+  const preOrderTraverseNode = function (node, cb) {
+    if (!node) {
+      return;
+    }
+    // Root --> Left --> Right
+    cb(node.data);
+    preOrderTraverseNode(node.left, cb);
+    preOrderTraverseNode(node.right, cb);
   }
 }
 
