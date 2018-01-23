@@ -90,6 +90,29 @@ function BinarySearchTree() {
     preOrderTraverseNode(node.left, cb);
     preOrderTraverseNode(node.right, cb);
   }
+
+  /*
+   * Post-order traversal visits the node after it visits the descendants.
+   * Use-case: could be computing the space used by a file in a directory
+   *           and its subdirectories
+   * Order of traversing is
+   *  1. Left
+   *  2. Right
+   *  3. Root
+   */
+  this.postOrderTraverse = function (cb) {
+    postOrderTraverseNode(this.root, cb);
+  }
+
+  const postOrderTraverseNode = function (node, cb) {
+    if (!node) {
+      return;
+    }
+    // Left --> Right --> Root
+    postOrderTraverseNode(node.left, cb);
+    postOrderTraverseNode(node.right, cb);
+    cb(node.data);
+  }
 }
 
 
