@@ -41,4 +41,10 @@ describe('Testing Binary search tree', () => {
     expect(expectedResultsArr).toEqual(result);
   });
 
+  test('should get the minimum value', () => {
+    let tree = new BinarySearchTree();
+    Helper.insertData(tree);
+    expect(tree.min()).toEqual(3);
+  });
+
 });

@@ -113,6 +113,22 @@ function BinarySearchTree() {
     postOrderTraverseNode(node.right, cb);
     cb(node.data);
   }
+
+  this.min = function () {
+    return minNode(this.root);
+  }
+
+  const minNode = function (node) {
+    if (!node) {
+      return null;
+    }
+
+    while (node && node.left) {
+      node = node.left;
+    }
+
+    return node.data;
+  }
 }
 
 
