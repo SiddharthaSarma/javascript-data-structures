@@ -76,4 +76,23 @@ class Tree {
     }
   }
 
+  remove(data) {
+    if (this.root.data === data) {
+      this.root = null;
+    }
+
+    let queue = [this.root];
+    while (queue.length) {
+      let node = queue.shift();
+      for (let i = 0; i < node.children.length; i++) {
+        if (node.children.data === data) {
+          node.children.splice(i, 1);
+        }
+        else {
+          queue.push(node.children[i]);
+        }
+      }
+    }
+  }
+
 }
