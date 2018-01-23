@@ -129,6 +129,22 @@ function BinarySearchTree() {
 
     return node.data;
   }
+
+  this.max = function () {
+    return maxNode(this.root);
+  }
+
+  const maxNode = function (node) {
+    if (!node) {
+      return null;
+    }
+
+    while (node && node.right) {
+      node = node.right;
+    }
+
+    return node.data;
+  }
 }
 
 

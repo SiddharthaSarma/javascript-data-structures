@@ -47,4 +47,10 @@ describe('Testing Binary search tree', () => {
     expect(tree.min()).toEqual(3);
   });
 
+  test('should get the maximum value', () => {
+    let tree = new BinarySearchTree();
+    Helper.insertData(tree);
+    expect(tree.max()).toEqual(25);
+  });
+
 });
