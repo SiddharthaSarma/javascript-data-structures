@@ -168,6 +168,57 @@ function BinarySearchTree() {
       return true;
     }
   }
+
+  // Remove
+  this.remove = function (val) {
+    this.root = removeNode(this.root, val);
+  }
+
+  const removeNode = function (node, val) {
+
+    if (!node) {
+      return null;
+    }
+
+    if (val < node.data) {
+      node.left = removeNode(node.left, val);
+      return node;
+    }
+
+    else if (val > node.data) {
+      node.right = removeNode(node.right, val);
+      return node;
+    }
+
+    else {
+      if (node.left === null && node.right === null) {
+        node = null;
+        return node;
+      }
+
+      if (node.left === null) {
+        node = node.right;
+        return node;
+      }
+
+      if (node.right === null) {
+        node = node.left;
+        return node;
+      }
+
+      let aux = findMinNode(node.right);
+      node.data = aux.data;
+      node.right = removeNode(node.right, aux.data);
+      return node;
+    }
+  }
+
+  const findMinNode = function (node) {
+    while (node && node.left !== null) {
+      node = node.left;
+    }
+    return node;
+  }
 }
 
 

@@ -65,4 +65,22 @@ describe('Testing Binary search tree', () => {
     expect(tree.search(1)).toEqual(false);
   });
 
+  test('should remove the element from the tree', () => {
+    let tree = new BinarySearchTree();
+    Helper.insertData(tree);
+    expect(tree.search(7)).toEqual(true);
+    tree.remove(7);
+    expect(tree.search(7)).toEqual(false);
+  });
+
+  test('should re-arrange the items properly after removing element', () => {
+    let tree = new BinarySearchTree();
+    Helper.insertData(tree);
+    tree.remove(7);
+    let result = [];
+    tree.inOrderTraverse((val) => result.push(val));
+    let expectedResultsArr = [3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 18, 20, 25];
+    expect(result).toEqual(expectedResultsArr);
+  });
+
 });
