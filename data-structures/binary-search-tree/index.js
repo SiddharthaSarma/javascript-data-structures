@@ -114,6 +114,7 @@ function BinarySearchTree() {
     cb(node.data);
   }
 
+  // Min
   this.min = function () {
     return minNode(this.root);
   }
@@ -130,6 +131,7 @@ function BinarySearchTree() {
     return node.data;
   }
 
+  // Max
   this.max = function () {
     return maxNode(this.root);
   }
@@ -146,6 +148,7 @@ function BinarySearchTree() {
     return node.data;
   }
 
+  // search
   this.search = function (val) {
     return searchNode(this.root, val);
   }
@@ -164,7 +167,6 @@ function BinarySearchTree() {
     else {
       return true;
     }
-
   }
 }
 
