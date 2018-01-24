@@ -3,7 +3,6 @@ const BinarySearchTree = require('./index');
 const Helper = require('./helper');
 
 describe('Testing Binary search tree', () => {
-
   test('Binary search tree should be function', () => {
     expect(typeof BinarySearchTree).toEqual('function');
   });
@@ -18,7 +17,7 @@ describe('Testing Binary search tree', () => {
     let tree = new BinarySearchTree();
     Helper.insertData(tree);
     let arr = [];
-    tree.inOrderTraverse((val) => arr.push(val));
+    tree.inOrderTraverse(val => arr.push(val));
     let result = [3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 20, 25];
     expect(arr).toEqual(result);
   });
@@ -27,7 +26,7 @@ describe('Testing Binary search tree', () => {
     let tree = new BinarySearchTree();
     Helper.insertData(tree);
     let expectedResultsArr = [];
-    tree.preOrderTraverse((val) => expectedResultsArr.push(val));
+    tree.preOrderTraverse(val => expectedResultsArr.push(val));
     let result = [11, 7, 5, 3, 6, 9, 8, 10, 15, 13, 12, 14, 20, 18, 25];
     expect(expectedResultsArr).toEqual(result);
   });
@@ -59,7 +58,7 @@ describe('Testing Binary search tree', () => {
     expect(tree.search(12)).toEqual(true);
   });
 
-  test('should return false when the search value doesn\'t exist in tree', () => {
+  test("should return false when the search value doesn't exist in tree", () => {
     let tree = new BinarySearchTree();
     Helper.insertData(tree);
     expect(tree.search(1)).toEqual(false);
@@ -78,9 +77,23 @@ describe('Testing Binary search tree', () => {
     Helper.insertData(tree);
     tree.remove(7);
     let result = [];
-    tree.inOrderTraverse((val) => result.push(val));
-    let expectedResultsArr = [3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 18, 20, 25];
+    tree.inOrderTraverse(val => result.push(val));
+    let expectedResultsArr = [
+      3,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      18,
+      20,
+      25
+    ];
     expect(result).toEqual(expectedResultsArr);
   });
-
 });

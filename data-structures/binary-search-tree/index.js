@@ -1,52 +1,46 @@
 function BinarySearchTree() {
-
-  const Node = function (data) {
+  const Node = function(data) {
     this.data = data;
     this.left = null;
     this.right = null;
-  }
+  };
 
   this.root = null;
 
-  this.insert = function (data) {
+  this.insert = function(data) {
     let newNode = new Node(data);
 
     // checking if root exists or not
     if (this.root === null) {
       this.root = newNode;
-    }
-    else {
+    } else {
       insertNode(this.root, newNode);
     }
-  }
+  };
 
-  const insertNode = function (node, newNode) {
+  const insertNode = function(node, newNode) {
     // If the data is less than existing node then it should be aligned left
     if (newNode.data < node.data) {
-
       // If left node doesn't exist then create it
       // otherwise add left node to the existing node.
       if (node.left === null) {
-        node.left = newNode
-      }
-      else {
+        node.left = newNode;
+      } else {
         insertNode(node.left, newNode);
       }
     }
 
     // If the data is greater than existing node then it should be aligned right
     if (newNode.data > node.data) {
-
       // If right node doesn't exist then create it
       // otherwise add right node to the existing node.
       if (node.right === null) {
-        node.right = newNode
-      }
-      else {
+        node.right = newNode;
+      } else {
         insertNode(node.right, newNode);
       }
     }
-  }
+  };
 
   /*
    * In-order traversal visits all the nodes of a BST in ascending order.
@@ -56,11 +50,11 @@ function BinarySearchTree() {
    *  2. Root
    *  3. Right
    */
-  this.inOrderTraverse = function (cb) {
+  this.inOrderTraverse = function(cb) {
     inOrderTraverseNode(this.root, cb);
-  }
+  };
 
-  const inOrderTraverseNode = function (node, cb) {
+  const inOrderTraverseNode = function(node, cb) {
     if (!node) {
       return;
     }
@@ -68,7 +62,7 @@ function BinarySearchTree() {
     inOrderTraverseNode(node.left, cb);
     cb(node.data);
     inOrderTraverseNode(node.right, cb);
-  }
+  };
 
   /*
    * Pre-order traversal visits the node prior to its descendants.
@@ -77,11 +71,11 @@ function BinarySearchTree() {
    *  2. Left
    *  3. Right
    */
-  this.preOrderTraverse = function (cb) {
+  this.preOrderTraverse = function(cb) {
     preOrderTraverseNode(this.root, cb);
-  }
+  };
 
-  const preOrderTraverseNode = function (node, cb) {
+  const preOrderTraverseNode = function(node, cb) {
     if (!node) {
       return;
     }
@@ -89,7 +83,7 @@ function BinarySearchTree() {
     cb(node.data);
     preOrderTraverseNode(node.left, cb);
     preOrderTraverseNode(node.right, cb);
-  }
+  };
 
   /*
    * Post-order traversal visits the node after it visits the descendants.
@@ -100,11 +94,11 @@ function BinarySearchTree() {
    *  2. Right
    *  3. Root
    */
-  this.postOrderTraverse = function (cb) {
+  this.postOrderTraverse = function(cb) {
     postOrderTraverseNode(this.root, cb);
-  }
+  };
 
-  const postOrderTraverseNode = function (node, cb) {
+  const postOrderTraverseNode = function(node, cb) {
     if (!node) {
       return;
     }
@@ -112,14 +106,14 @@ function BinarySearchTree() {
     postOrderTraverseNode(node.left, cb);
     postOrderTraverseNode(node.right, cb);
     cb(node.data);
-  }
+  };
 
   // Min
-  this.min = function () {
+  this.min = function() {
     return minNode(this.root);
-  }
+  };
 
-  const minNode = function (node) {
+  const minNode = function(node) {
     if (!node) {
       return null;
     }
@@ -129,14 +123,14 @@ function BinarySearchTree() {
     }
 
     return node.data;
-  }
+  };
 
   // Max
-  this.max = function () {
+  this.max = function() {
     return maxNode(this.root);
-  }
+  };
 
-  const maxNode = function (node) {
+  const maxNode = function(node) {
     if (!node) {
       return null;
     }
@@ -146,36 +140,33 @@ function BinarySearchTree() {
     }
 
     return node.data;
-  }
+  };
 
   // search
-  this.search = function (val) {
+  this.search = function(val) {
     return searchNode(this.root, val);
-  }
+  };
 
-  const searchNode = function (node, val) {
+  const searchNode = function(node, val) {
     if (!node) {
       return false;
     }
 
     if (val < node.data) {
       return searchNode(node.left, val);
-    }
-    else if (val > node.data) {
+    } else if (val > node.data) {
       return searchNode(node.right, val);
-    }
-    else {
+    } else {
       return true;
     }
-  }
+  };
 
   // Remove
-  this.remove = function (val) {
+  this.remove = function(val) {
     this.root = removeNode(this.root, val);
-  }
+  };
 
-  const removeNode = function (node, val) {
-
+  const removeNode = function(node, val) {
     if (!node) {
       return null;
     }
@@ -183,14 +174,10 @@ function BinarySearchTree() {
     if (val < node.data) {
       node.left = removeNode(node.left, val);
       return node;
-    }
-
-    else if (val > node.data) {
+    } else if (val > node.data) {
       node.right = removeNode(node.right, val);
       return node;
-    }
-
-    else {
+    } else {
       if (node.left === null && node.right === null) {
         node = null;
         return node;
@@ -211,15 +198,14 @@ function BinarySearchTree() {
       node.right = removeNode(node.right, aux.data);
       return node;
     }
-  }
+  };
 
-  const findMinNode = function (node) {
+  const findMinNode = function(node) {
     while (node && node.left !== null) {
       node = node.left;
     }
     return node;
-  }
+  };
 }
-
 
 module.exports = BinarySearchTree;

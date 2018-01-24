@@ -1,5 +1,4 @@
-const Helper = (function () {
-
+const Helper = (function() {
   function insertData(tree) {
     tree.insert(11);
     tree.insert(7);
@@ -20,8 +19,7 @@ const Helper = (function () {
 
   return {
     insertData: insertData
-  }
-
+  };
 })();
 
 module.exports = Helper;
