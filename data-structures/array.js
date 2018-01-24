@@ -16,7 +16,7 @@ MyArray.prototype.add = function(item) {
 MyArray.prototype.remove = function(data) {
   this.items = this.items.filter(function(value) {
     return value !== data;
-  })
+  });
 };
 
 MyArray.prototype.search = function(value) {
@@ -33,12 +33,11 @@ MyArray.prototype.getAtIndex = function(index) {
 
 MyArray.prototype.length = function() {
   return this.items.length;
-}
+};
 
 MyArray.prototype.print = function() {
   console.log(this.items.join(' '));
 };
-
 
 // test
 var array = new MyArray();
