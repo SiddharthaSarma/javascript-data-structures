@@ -1,5 +1,4 @@
-const linearSearch = function (arr, val) {
-
+const linearSearch = function(arr, val) {
   if (!Array.isArray(arr)) {
     return false;
   }
@@ -11,6 +10,6 @@ const linearSearch = function (arr, val) {
   }
 
   return -1;
-}
+};
 
 module.exports = linearSearch;
