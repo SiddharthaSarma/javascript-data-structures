@@ -10,7 +10,7 @@ function MyArray() {
 }
 
 MyArray.prototype.add = function(item) {
-  this.items.push();
+  this.items.push(item);
 };
 
 MyArray.prototype.remove = function(data) {
