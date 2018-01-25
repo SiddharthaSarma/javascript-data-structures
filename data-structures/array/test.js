@@ -25,4 +25,22 @@ describe('Array data-structure testcases', () => {
     arr.print(el => result.push(...el));
     expect(result).toEqual([1, 2, 3, 4]);
   });
+
+  test('it should return the index if the element is present', () => {
+    let arr = new MyArray();
+    arr.add(1);
+    arr.add(2);
+    arr.add(3);
+    arr.add(4);
+    expect(arr.search(3)).toEqual(2);
+  });
+
+  test('it should return null if the element is not present', () => {
+    let arr = new MyArray();
+    arr.add(1);
+    arr.add(2);
+    arr.add(3);
+    arr.add(4);
+    expect(arr.search(10)).toEqual(null);
+  });
 });
