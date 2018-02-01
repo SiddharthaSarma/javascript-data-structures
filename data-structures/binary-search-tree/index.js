@@ -234,3 +234,5 @@ function BinarySearchTree() {
     return node;
   };
 }
+
+module.exports = BinarySearchTree;
