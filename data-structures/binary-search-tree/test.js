@@ -13,6 +13,18 @@ describe('Testing Binary search tree', () => {
     expect(tree.root.data).toEqual(11);
   });
 
+  test('should support level order traversal', () => {
+    let tree = new BinarySearchTree();
+    Helper.insertData(tree);
+    let expectedResult = [
+      [11],
+      [7, 15],
+      [5, 9, 13, 20],
+      [3, 6, 8, 10, 12, 14, 18, 25]
+    ];
+    expect(tree.levelOrderTraverse()).toEqual(expectedResult);
+  });
+
   test('should support In-order traversal', () => {
     let tree = new BinarySearchTree();
     Helper.insertData(tree);
