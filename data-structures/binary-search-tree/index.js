@@ -42,9 +42,10 @@ function BinarySearchTree() {
     }
   };
 
+  // level order traverse
   this.levelOrderTraverse = function(cb) {
     return levelOrderTraverseNode(this.root);
-  }
+  };
 
   const levelOrderTraverseNode = function(node, index = 0, arr = []) {
     if (!node) {
@@ -55,19 +56,19 @@ function BinarySearchTree() {
       index++;
     }
     if (!arr[index] && (node.left || node.right)) {
-      arr[index] = []
+      arr[index] = [];
     }
     if (node.left) {
-      arr[index] = [...arr[index], node.left.data]
+      arr[index] = [...arr[index], node.left.data];
     }
     if (node.right) {
-      arr[index] = [...arr[index], node.right.data]
+      arr[index] = [...arr[index], node.right.data];
     }
     index++;
     levelOrderTraverseNode(node.left, index, arr);
     levelOrderTraverseNode(node.right, index, arr);
     return arr;
-  }
+  };
 
   /*
    * In-order traversal visits all the nodes of a BST in ascending order.
