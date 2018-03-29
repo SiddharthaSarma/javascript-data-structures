@@ -51,5 +51,27 @@ function swap(arr, i, j) {
   arr[j] = temp;
 }
 
+// second method
+const quickSort = nums => {
+  const sortedArray = [...nums]
+
+  if (sortedArray.length <= 1) {
+    return sortedArray;
+  }
+
+  const pivot = sortedArray[sortedArray.length - 1];
+  const left = [];
+  const right = [];
+
+  for (let i = 0; i < sortedArray.length - 1; i++) {
+    if (sortedArray[i] < pivot) {
+      left.push(sortedArray[i]);
+    } else {
+      right.push(sortedArray[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+};
+
 // test
 quickSort([7, 1, 2, 4, 3, 9]);
