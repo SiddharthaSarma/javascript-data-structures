@@ -22,7 +22,9 @@ describe('Testing Binary search tree', () => {
       [5, 9, 13, 20],
       [3, 6, 8, 10, 12, 14, 18, 25]
     ];
-    expect(tree.levelOrderTraverse()).toEqual(expectedResult);
+    let arr = [];
+    tree.levelOrderTraverse(val => arr = val)
+    expect(arr).toEqual(expectedResult);
   });
 
   test('should support In-order traversal', () => {
