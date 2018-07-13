@@ -17,7 +17,8 @@ class LinkedList {
 
     if (!this.head) {
       this.head = node;
-    } else {
+    }
+    else {
       while (current.next) {
         current = current.next;
       }
@@ -63,7 +64,8 @@ class LinkedList {
       if (count == pos) {
         deletedNode = current;
         previousNode.next = current.next;
-      } else {
+      }
+      else {
         previousNode = current;
         current = current.next;
       }
@@ -72,3 +74,5 @@ class LinkedList {
     return deletedNode;
   }
 }
+
+module.exports = LinkedList;
